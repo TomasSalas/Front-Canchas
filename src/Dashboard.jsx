@@ -10,7 +10,7 @@ import { FormatDate } from './Helpers/FormatDate';
 import { Controller, useForm } from 'react-hook-form';
 import { UpdatePago } from './Functions/UpdatePago';
 import { Toaster, toast } from 'sonner';
-import { Verificar } from './Functions/Verificar';
+// import { Verificar } from './Functions/Verificar';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { containerVariants } from './Helpers/VariantMotion';
@@ -107,7 +107,7 @@ export const Dashboard = () => {
 
 	return (
 		<>
-			<Verificar />
+			{/* <Verificar /> */}
 			<Toaster richColors />
 			<NavBarDrawer name={Nombre} />
 			<motion.div initial="hidden" animate="visible" exit="exit" variants={containerVariants}>
