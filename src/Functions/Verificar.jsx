@@ -13,6 +13,7 @@ export const Verificar = () => {
 
 	const verificarToken = useCallback(() => {
 		const token = Cookies.get('token');
+		console.log('Token:', token);
 
 		if (token) {
 			const expired = isExpired(token);
