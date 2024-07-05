@@ -1,12 +1,9 @@
-/* eslint-disable no-unused-vars */
-import { useCookies } from 'react-cookie';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isExpired, decodeToken } from 'react-jwt';
 import { useStore } from '../Store/StoreData';
 
 export const Verificar = () => {
-	const [cookies, setCookie, removeCookie] = useCookies(['token']);
 	const navigate = useNavigate();
 	const setAuth = useStore((state) => state.setAuth);
 	const setCorreo = useStore((state) => state.setCorreo);
@@ -14,15 +11,14 @@ export const Verificar = () => {
 	const setUsuario = useStore((state) => state.setUsuario);
 
 	useEffect(() => {
-		const token = cookies.token;
-		console.log('Token:', token);
+		const token = localStorage.getItem('dataUser');
 
 		if (token) {
 			const expired = isExpired(token);
 
 			if (expired) {
-				removeCookie('token');
-				removeCookie('userData');
+				localStorage.removeItem('dataUser');
+				localStorage.removeItem('userData');
 				navigate('/');
 			} else {
 				const decode = decodeToken(token);
@@ -32,19 +28,19 @@ export const Verificar = () => {
 					setUsuario(decode.data.usuario);
 					setAuth(true);
 				} else {
-					removeCookie('token');
-					removeCookie('userData');
+					localStorage.removeItem('dataUser');
+					localStorage.removeItem('userData');
 					setAuth(false);
 					navigate('/');
 				}
 			}
 		} else {
-			removeCookie('token');
-			removeCookie('userData');
+			localStorage.removeItem('dataUser');
+			localStorage.removeItem('userData');
 			setAuth(false);
 			navigate('/');
 		}
-	}, [cookies, navigate, removeCookie, setAuth, setCorreo, setIdusuario, setUsuario]);
+	}, [navigate, setAuth, setCorreo, setIdusuario, setUsuario]);
 
 	return null;
 };

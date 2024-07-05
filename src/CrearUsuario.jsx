@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 import { containerVariants } from './Helpers/VariantMotion';
 import { motion } from 'framer-motion';
+import { Verificar } from './Functions/Verificar';
 
 export const CrearUsuario = () => {
 	const theme = useTheme();
@@ -58,6 +59,7 @@ export const CrearUsuario = () => {
 
 	return (
 		<>
+			<Verificar />
 			<Toaster richColors />
 			<NavBarDrawer name={Nombre} />
 			<motion.div initial="hidden" animate="visible" exit="exit" variants={containerVariants}>

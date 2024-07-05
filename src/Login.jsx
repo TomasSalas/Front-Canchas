@@ -12,18 +12,13 @@ export const InicioSesion = () => {
 	const navigate = useNavigate();
 	const [open, setOpen] = useState(false);
 	const isAuth = useStore((state) => state.isAuth);
-	const setAuth = useStore((state) => state.setAuth);
-	const setCorreo = useStore((state) => state.setCorreo);
-	const setIdusuario = useStore((state) => state.setIdusuario);
-	const setUsuario = useStore((state) => state.setUsuario);
+
 	const IniciarSesion = async (items) => {
 		setOpen(true);
 		const { error, message, data } = await Login(items);
+
 		if (!error) {
-			setCorreo(data.correo);
-			setIdusuario(data.idUsuario);
-			setUsuario(data.usuario);
-			setAuth(true);
+			localStorage.setItem('dataUser', data);
 			navigate('/inicio');
 			setOpen(false);
 		} else {

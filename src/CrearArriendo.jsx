@@ -12,6 +12,7 @@ import { AgregarReserva } from './Functions/AgregarReserva';
 import { useTheme } from '@mui/material/styles';
 import { containerVariants } from './Helpers/VariantMotion';
 import { motion } from 'framer-motion';
+import { Verificar } from './Functions/Verificar';
 
 export const CrearArriendo = () => {
 	const theme = useTheme();
@@ -84,6 +85,7 @@ export const CrearArriendo = () => {
 
 	return (
 		<>
+			<Verificar />
 			<Toaster richColors />
 			<NavBarDrawer name={Nombre} />
 			<motion.div initial="hidden" animate="visible" exit="exit" variants={containerVariants}>
