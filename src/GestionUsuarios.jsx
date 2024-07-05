@@ -1,4 +1,3 @@
-import { Verificar } from './Functions/Verificar';
 import { NavBarDrawer } from './Componets/NavBarDrawer';
 import { Box, Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, useMediaQuery } from '@mui/material';
 import { useStore } from './Store/StoreData';
@@ -50,7 +49,6 @@ export const GestionUsuarios = () => {
 
 	return (
 		<>
-			<Verificar />
 			<Toaster richColors />
 			<NavBarDrawer name={Nombre} />
 			<motion.div initial="hidden" animate="visible" exit="exit" variants={containerVariants}>

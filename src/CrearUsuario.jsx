@@ -1,4 +1,3 @@
-import { Verificar } from './Functions/Verificar';
 import { NavBarDrawer } from './Componets/NavBarDrawer';
 import { Backdrop, Box, Button, CircularProgress, Container, TextField, Typography, useMediaQuery } from '@mui/material';
 import { useStore } from './Store/StoreData';
@@ -59,7 +58,6 @@ export const CrearUsuario = () => {
 
 	return (
 		<>
-			<Verificar />
 			<Toaster richColors />
 			<NavBarDrawer name={Nombre} />
 			<motion.div initial="hidden" animate="visible" exit="exit" variants={containerVariants}>

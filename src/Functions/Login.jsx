@@ -14,12 +14,14 @@ export const Login = async (item) => {
 	if (error == null) {
 		return {
 			error: false,
-			result: data,
+			message,
+			data,
 		};
 	} else {
 		return {
 			error: true,
-			result: message,
+			message,
+			data,
 		};
 	}
 };
