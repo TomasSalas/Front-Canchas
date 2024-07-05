@@ -45,7 +45,9 @@ export const Verificar = () => {
 	}, [navigate, setAuth, setCorreo, setIdusuario, setUsuario]);
 
 	useEffect(() => {
-		verificarToken();
+		setTimeout(() => {
+			verificarToken();
+		}, 1000);
 	}, [verificarToken]);
 
 	return null;
