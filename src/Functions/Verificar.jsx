@@ -12,6 +12,16 @@ export const Verificar = () => {
 	const setUsuario = useStore((state) => state.setUsuario);
 
 	const verificarToken = useCallback(() => {
+		const getCookie = (name) => {
+			const value = `; ${document.cookie}`;
+			const parts = value.split(`; ${name}=`);
+			if (parts.length === 2) return parts.pop().split(';').shift();
+		};
+
+		// Uso
+		const tokenDocument = getCookie('token');
+		console.log('Token:', tokenDocument);
+
 		const token = Cookies.get('token');
 		console.log('Token:', token);
 
