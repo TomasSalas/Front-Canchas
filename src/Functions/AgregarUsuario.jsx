@@ -9,6 +9,7 @@ export const AgregarUsuario = async (item) => {
 		credentials: 'include',
 	});
 
+	console.log(response);
 	const { error, message } = await response.json();
 
 	if (error == null) {
